@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Meet Up</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="header">
+
+    </div>
+    <h1>Meet Up</h1>
+    <form class="" action="index.html" method="post">
+      <label for="">
+        <!-- <select id="topics" name="">
+          <option>Categories</option>
+          <option value="newswire">x</option>
+          <option value="books">y</option>
+          <option value="movies">z</option>
+        </select> -->
+
+        <!-- input topic and zip code to search -->
+        <input type="text" id="topic-input-box" name="name" value="" placeholder="Enter a topic">
+        <input type="text" id="zip-input-box" name="name" value="" placeholder="zipcode">
+        <!--Submit button-->
+        <button type="button" id="submit-btn" name="button">SUBMIT</button>
+
+      </label>
+    </form>
+    <!--info template-->
+    <div id="results-container"></div>
+    <script id="info-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <h1>{{this.name}}</h1>
+        <p>{{this.venue}}</p>
+      {{/each}}
+    </script>
+
+    <script type="text/javascript" src="apiKey.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+  </body>
+</html>
