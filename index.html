@@ -9,22 +9,13 @@
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div id="header">
-
-    </div>
-    <h1>Meet Up</h1>
+    <div id="header"></div>
+    <h1>Meet Up Roulette</h1>
     <form class="" action="index.html" method="post">
       <label for="">
-        <!-- <select id="topics" name="">
-          <option>Categories</option>
-          <option value="newswire">x</option>
-          <option value="books">y</option>
-          <option value="movies">z</option>
-        </select> -->
-
         <!-- input topic and zip code to search -->
-        <input type="text" id="topic-input-box" name="name" value="" placeholder="Enter a topic">
-        <input type="text" id="zip-input-box" name="name" value="" placeholder="zipcode">
+        <input type="text" class="inputs" id="topic-input-box" name="name" value="" placeholder="Enter a topic">
+        <input type="text" class="inputs" id="zip-input-box" name="name" value="" placeholder="zipcode">
         <!--Submit button-->
         <button type="button" id="submit-btn" name="button">SUBMIT</button>
 
@@ -33,14 +24,32 @@
     <!--info template-->
     <div id="results-container"></div>
     <script id="info-template" type="text/x-handlebars-template">
-      {{#each this}}
-        <h1>{{this.name}}</h1>
-        <p>{{this.venue}}</p>
+      {{#each results}}
+        <h3><a href="{{event_url}}">{{name}}</a></h3>
+        <p>{{venue.city}}</p>
+        <p>{{venue.name}}</p>
+        <p>{{venue.address_1}}</p>
+        <!-- <p>description: {{description}}</p> -->
       {{/each}}
     </script>
+    <!-- <div async defer src="" id="map-div"></div> -->
+    <!-- GOOGLE MAPS CODE-->
+    <!-- <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script> -->
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" asyn defer></script>
+    <div id="map"></div> -->
+    <!--end google maps-->
 
     <script type="text/javascript" src="apiKey.js"></script>
     <script type="text/javascript" src="main.js"></script>
-
+    <!-- <div async defer src="" id="map-div"></div> -->
   </body>
 </html>
