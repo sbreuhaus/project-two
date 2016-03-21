@@ -28,10 +28,13 @@ p {
 
 body {
   text-align: center;
+  /*background-color: #FFDC00;*/
+  /*background-image: url(http://i.imgur.com/67EjwuD.jpg);*/
 }
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a:visited {
@@ -57,5 +60,12 @@ a:visited {
 }
 
 #map {
-  height: 100%;
+  width: 100%x;
+  height: 400px;
+}
+
+.map-hidden {
+   position: absolute !important;
+   top: -9999px !important;
+   left: -9999px !important;
 }

@@ -32,7 +32,7 @@ window.onload = function(){
   //  console.log(zipCode.value);
   //  console.log(topic.value);
 
-   var query = 'https://api.meetup.com/2/open_events?key=' + MEETUP_KEY + '&sign=true' +'&zip=' + zipCode.value + '&topic=' + topic.value + '&time=,1w';
+   var query = 'https://api.meetup.com/2/open_events?key=' + MEETUP_KEY + '&sign=true' +'&zip=' + zipCode.value + '&topic=' + topic.value.replace(/ +/g, "") + '&time=,1w';
    // console.log("query:", query);
    var filtered = {};
   //
@@ -46,15 +46,19 @@ window.onload = function(){
        if (response.results[i].name) {
          var name = response.results[i].name;
          filtered.results.name = name;
+         filtered.results.push(name);
+         console.log(name);
        }
        if (response.results[i].venue) {
          var venueObj = response.results[i].venue;
          filtered.results.venue = venueObj;
+         filtered.results.push(venueObj);
+         console.log(venueObj);
        }
 
-       var id = response.results[i].id;
-       var event_url = response.results[i].event_url;
-       var groupName = response.results[i].group["name"];
+      //  var id = response.results[i].id;
+      //  var event_url = response.results[i].event_url;
+      //  var groupName = response.results[i].group["name"];
      }
      console.log("filtered: ", filtered);
   //
@@ -73,7 +77,7 @@ window.onload = function(){
       // }
   //
   //   // HBS
-    var compiledHTML = template(response.results);
+    var compiledHTML = template(filtered);
     resultsContainer.innerHTML = compiledHTML;
 
 
